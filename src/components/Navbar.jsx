@@ -1,11 +1,36 @@
 import React from "react";
+import classes from './Navbar.module.css'
 
-const Header = () => {
-    return(
-        <header className={'header'}>
-            <img src="https://pngimage.net/wp-content/uploads/2018/06/random-logo-png-9.png" alt="img"/>
-        </header>
+const Navbar = () => {
+    return (
+        <nav className={classes.nav}>
+            <div className={classes.item}>
+                <a>
+                    Profile
+                </a>
+            </div>
+            <div className={classes.item}>
+                <a>
+                    Massages
+                </a>
+            </div>
+            <div className={classes.item}>
+                <a>
+                    News
+                </a>
+            </div>
+            <div className={classes.item}>
+                <a>
+                    Music
+                </a>
+            </div>
+            <div className={classes.item}>
+                <a>
+                    Settings
+                </a>
+            </div>
+        </nav>
     );
 }
 
-export default Header;
+export default Navbar;
