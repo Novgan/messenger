@@ -1,12 +1,7 @@
-.allContent {
-    grid-area: c;
-    background-color: silver;
+.background_img {
+    width: 100%;
 }
 
 .content {
     margin-left: 20px;
-}
-
-.background_img {
-    width: 100%;
 }

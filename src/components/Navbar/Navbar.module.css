@@ -1,10 +1,18 @@
 .nav {
-    background-color: blue;
+    background-color: chocolate;
     grid-area: n;
 }
 
 .item {
     margin-top: 20px;
     text-align: center;
+}
+
+.item a {
+    text-decoration: none;
     color: white;
+}
+
+.item a.active {
+    color: gold;
 }
