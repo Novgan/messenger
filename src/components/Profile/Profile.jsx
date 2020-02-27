@@ -4,16 +4,23 @@ import MyPosts from "./My posts/MyPosts";
 
 const Profile = () => {
     return (
-        <div className={classes.content}>
+        <div className={classes.allContent}>
             <div>
                 <img className={classes.background_img}
-                    src="https://www.thewowstyle.com/wp-content/uploads/2015/01/nature-images.jpg"
-                    alt="img"/>
+                     src="https://lh3.googleusercontent.com/proxy/m4C2SxSuvQhN85s03k21iYVaUDqEzVLeOISJ8W3nPPZ7WzaFG3tYLboNfg76VT5jgRbN5IMovJZpL-wQOO0D3YdbaAGXsCpbRPGRW5gcnqiuDMfUXgQcU0BMjk9_Wq5MYw"
+                     alt="img"/>
             </div>
-            <div>
-                ava + description
+            <div className={classes.content}>
+                <div>
+                    <div>
+                        <img src="https://steamuserimages-a.akamaihd.net/ugc/933814008884044805/E20A0BE3AD9EAB275000E54443E4EAC01B85BB4A/" alt=""/>
+                    </div>
+                    <div>
+                        I`am wolf
+                    </div>
+                </div>
+                <MyPosts/>
             </div>
-            <MyPosts/>
         </div>
     );
 }

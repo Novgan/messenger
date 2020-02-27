@@ -1,8 +1,10 @@
 .nav {
-    background-color: aqua;
+    background-color: blue;
     grid-area: n;
 }
 
 .item {
+    margin-top: 20px;
+    text-align: center;
     color: white;
 }

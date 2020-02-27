@@ -1,9 +1,12 @@
-.content {
+.allContent {
     grid-area: c;
-    background-color: blue;
+    background-color: silver;
+}
+
+.content {
+    margin-left: 20px;
 }
 
 .background_img {
     width: 100%;
-    height: 300px;
 }
