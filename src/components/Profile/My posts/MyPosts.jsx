@@ -7,13 +7,22 @@ const MyPosts = (props) => {
     let postsElements = props.posts.map(post => <Post message={post.message} like={post.likesCount}/>);
 
     let newPostElement = React.createRef();
+
     let addPost = () => {
         let text = newPostElement.current.value;
         if (text === '') {
             alert("Nothing to post");
         }
         props.addPost(text);
-        newPostElement.current.value = '';
+    };
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        props.postText(text);
+    };
+
+    let preСleaning = () => {
+        props.postText('');
     };
 
     return (
@@ -21,9 +30,13 @@ const MyPosts = (props) => {
             My post
             <div>
                 <div>
-                    <textarea ref={newPostElement} className={classes.textarea} name="Post" id="" cols="30" rows="3">
-
-                    </textarea>
+                    <textarea
+                        ref={newPostElement}
+                        onClick={preСleaning}
+                        onChange={onPostChange}
+                        className={classes.textarea}
+                        name="Post"
+                        value={props.newPostText} id="" cols="30" rows="3"/>
                 </div>
                 <button onClick={addPost}>
                     Add post
