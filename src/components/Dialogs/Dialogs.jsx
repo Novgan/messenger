@@ -5,17 +5,19 @@ import Message from "./Messages/Message";
 
 
 const Dialogs = (props) => {
+    let state = props.dialogsPage;
 
-    let dialogsElements = props.state.dialogs.map(d => <Dialog_items name={d.name} id={d.id}/>);
-    let messagesElement = props.state.messages.map(message => <Message content={message.message}/>);
-
-    let textAreaElement = React.createRef();
+    let dialogsElements = state.dialogs.map(d => <Dialog_items name={d.name} id={d.id}/>);
+    let messagesElement = state.messages.map(m => <Message content={m.message}/>);
 
     let sendMessage = () => {
-        let text = textAreaElement.current.value;
-        alert(text);
+        props.sendMessage();
     };
 
+    let newMessageText = (e) => {
+        let newText = e.target.value;
+        props.messageText(newText);
+    };
 
     return (
         <div className={classes.dialogs}>
@@ -23,17 +25,20 @@ const Dialogs = (props) => {
                 {dialogsElements}
             </div>
             <div className={classes.messages}>
-                {messagesElement}
-            </div>
-            <div>
-                    <textarea ref={textAreaElement} cols="30" rows="3">
-
-                    </textarea>
-            </div>
-            <div>
-                <button onClick={sendMessage}>
-                    Send
-                </button>
+                <div>{messagesElement}</div>
+                <div>
+                    <div>
+                    <textarea placeholder={'Enter your message'}
+                              onChange={newMessageText}
+                              value={state.newMessageText}
+                              cols="30" rows="3"/>
+                    </div>
+                    <div>
+                        <button onClick={sendMessage}>
+                            Send
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     )

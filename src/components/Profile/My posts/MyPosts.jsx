@@ -2,27 +2,21 @@ import React from "react";
 import classes from './MyPosts.module.css'
 import Post from "./Post/Post";
 
+
 const MyPosts = (props) => {
 
     let postsElements = props.posts.map(post => <Post message={post.message} like={post.likesCount}/>);
 
     let newPostElement = React.createRef();
 
-    let addPost = () => {
+    let onAddPost = () => {
         let text = newPostElement.current.value;
-        if (text === '') {
-            alert("Nothing to post");
-        }
         props.addPost(text);
     };
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.postText(text);
-    };
-
-    let preСleaning = () => {
-        props.postText('');
+        props.updateNewPostText(text);
     };
 
     return (
@@ -32,13 +26,13 @@ const MyPosts = (props) => {
                 <div>
                     <textarea
                         ref={newPostElement}
-                        onClick={preСleaning}
                         onChange={onPostChange}
+                        placeholder={'Enter text'}
                         className={classes.textarea}
                         name="Post"
                         value={props.newPostText} id="" cols="30" rows="3"/>
                 </div>
-                <button onClick={addPost}>
+                <button onClick={onAddPost}>
                     Add post
                 </button>
             </div>
