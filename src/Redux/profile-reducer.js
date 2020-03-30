@@ -13,17 +13,26 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
-            let newPost = {
-                id: 4,
-                message: state.newPostText,
-                likesCount: 0,
-            };
-            state.posts.unshift(newPost);
-            state.newPostText = '';
-            return state;
+            if (state.newPostText === '') {
+                alert('Noting to post');
+                return state;
+            } else {
+                let newPost = {
+                    id: 4,
+                    message: state.newPostText,
+                    likesCount: 0,
+                };
+                return {
+                    ...state,
+                    posts: [newPost, ...state.posts],
+                    newPostText: ''
+                };
+            }
         case POST_TEXT:
-            state.newPostText = action.text;
-            return state;
+            return {
+                ...state,
+                newPostText: action.text
+            };
         default:
             return state;
     }

@@ -7,11 +7,11 @@ let initialState = {
 const settingReducer = (state = initialState, action) => {
     switch (action.type) {
         case CHANGE_THEME:
-            let bodyColor = () => {
+            let changer = () => {
                 state.bodyColor === 'white' ? state.bodyColor = 'black' : state.bodyColor = 'white'
             };
         default:
-            return state
+            return state;
     }
 };
 

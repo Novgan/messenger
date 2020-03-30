@@ -7,8 +7,8 @@ import Message from "./Messages/Message";
 const Dialogs = (props) => {
     let state = props.dialogsPage;
 
-    let dialogsElements = state.dialogs.map(d => <Dialog_items name={d.name} id={d.id}/>);
-    let messagesElement = state.messages.map(m => <Message content={m.message}/>);
+    let dialogsElements = state.dialogs.map(d => <Dialog_items name={d.name} key={d.id} id={d.id}/>);
+    let messagesElement = state.messages.map(m => <Message content={m.message} key={m.id}/>);
 
     let sendMessage = () => {
         props.sendMessage();
@@ -42,6 +42,6 @@ const Dialogs = (props) => {
             </div>
         </div>
     )
-}
+};
 
 export default Dialogs;

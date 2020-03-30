@@ -1,10 +1,11 @@
 import React from "react";
 import classes from "./Settings.module.css"
+import {changeThemeActionCreator} from "../../Redux/setting-reducer";
 
 const Setting = () => {
 
-    let changeTheme = () => {
-        alert('ok')
+    let changeTheme = (e) => {
+        changeThemeActionCreator();
     };
 
     return (

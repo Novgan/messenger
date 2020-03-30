@@ -6,6 +6,7 @@ import Profile from "./components/Profile/Profile";
 import New from "./components/News/New";
 import Music from "./components/Music/Music";
 import Setting from "./components/Settings/Settings";
+import UsersContainer from "./components/Users/UsersContainer";
 import {Route} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
@@ -16,12 +17,14 @@ const App = (props) => {
             <Navbar/>
             <div className={'app-wrapper-content'}>
                 <Route path='/profile' render={() =>
-                    <Profile store={props.store}/>}/>
+                    <Profile/>}/>
                 <Route path='/dialogs' render={() =>
-                    <DialogsContainer store={props.store}/>}/>
+                    <DialogsContainer/>}/>
                 <Route path='/news' render={() => <New/>}/>
                 <Route path='/music' render={() => <Music/>}/>
                 <Route path='/setting' render={() => <Setting/>}/>
+                <Route path='/users' render={() =>
+                    <UsersContainer/>}/>
             </div>
         </div>
     );
