@@ -3,3 +3,26 @@
     height: 100px;
     border-radius: 50%;
 }
+
+.userWrapper{
+    margin-bottom: 50px;
+    border: 1px solid #b3b3b3;
+}
+
+.userWrapper a {
+    text-decoration: none;
+    color: black;
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.wrapper{
+    margin-left: 50px;
+}
+
+span {
+    margin-left: 10px;
+    cursor: pointer;
+}

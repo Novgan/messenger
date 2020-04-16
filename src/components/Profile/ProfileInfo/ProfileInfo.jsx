@@ -1,22 +1,40 @@
 import React from "react";
 import classes from './ProfileInfo.module.css'
+import Preloader from "../../Common/Preloader/Preloader";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+    if (!props.profile) {
+        return <Preloader/>
+    }
+
+    let contacts = {...props.profile.contacts};
+
     return (
-        <div>
+        <div className={classes.descriptionBlock}>
+            <div className={classes.photoWrapper}>
+                {props.profile.photos.large
+                    ? <img src={props.profile.photos.large} alt="photos"/>
+                    : <img src={require('../../../assets/images/user.png')} alt="photos"/>
+                }
+            </div>
             <div>
-                <img className={classes.background_img}
-                     src="https://www.komandirovka.ru/upload/iblock/80c/80c900bf67ed148da7af4b0f1484b95b.jpg"
-                     alt="img"/>
+                <div className={classes.bold}>Full name:</div>
+                <div className={classes.inline}>{props.profile.fullName}</div>
             </div>
-            <div className={classes.description_Block}>
-                <div>
-                    <img src="https://steamuserimages-a.akamaihd.net/ugc/933814008884044805/E20A0BE3AD9EAB275000E54443E4EAC01B85BB4A/" alt="back"/>
+            {props.profile.photos.large === null
+                ? null
+                : <div>
+                    <div className={classes.bold}>About me:</div>
+                    <div className={classes.inline}>{props.profile.aboutMe}</div>
                 </div>
-                <div>
-                    I`am wolf
-                </div>
-            </div>
+            }
+            {Object.keys(contacts).map((u, i) => {
+                if (contacts[u] === null) return null;
+                return (<div key={i}>
+                    <div className={classes.bold}>{u}:</div>
+                    <div className={classes.inline}>{contacts[u]}</div>
+                </div>)
+            })}
         </div>
     );
 }

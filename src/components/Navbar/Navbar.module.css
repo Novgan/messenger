@@ -1,5 +1,6 @@
 .nav {
-    background-color: chocolate;
+    background-color: #507299;
+    min-height: 70ch;
     grid-area: n;
 }
 

@@ -1,3 +1,22 @@
-.description_Block {
+.descriptionBlock {
     padding-left: 10px;
+}
+
+.photoWrapper img{
+    max-width: 300px;
+    border-radius: 50%;
+}
+
+.inline{
+    margin-left: 10px;
+    display: inline;
+}
+
+.bold {
+    font-weight: bold;
+    display: inline;
+}
+
+.descriptionBlock {
+    margin-top: 10px;
 }
