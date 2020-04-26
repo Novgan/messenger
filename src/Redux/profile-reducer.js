@@ -1,6 +1,5 @@
 import {usersAPI} from "../api/api";
 
-const POST_TEXT = 'POST-TEXT';
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
@@ -17,26 +16,15 @@ const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
-            if (state.newPostText === '') {
-                alert('Noting to post');
-                return state;
-            } else {
                 let newPost = {
                     id: 4,
-                    message: state.newPostText,
+                    message: action.text,
                     likesCount: 0,
                 };
                 return {
                     ...state,
-                    posts: [newPost, ...state.posts],
-                    newPostText: ''
+                    posts: [newPost, ...state.posts]
                 };
-            }
-        case POST_TEXT:
-            return {
-                ...state,
-                newPostText: action.text
-            };
         case SET_USER_PROFILE:
             return {...state, profile: action.profile };
         default:
@@ -57,9 +45,6 @@ export const getUserProfile = (userId) => (dispatch) => {
         dispatch(setUserProfile(response.data));
     });
 };
-export const postTextActionCreator = (text) => ({
-    type: POST_TEXT,
-    text
-});
+
 
 export default profileReducer;

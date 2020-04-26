@@ -16,6 +16,11 @@
     float: right;
 }
 
+.loginBlock button{
+    outline: none;
+    border: none;
+}
+
 .loginBlock a {
     color: white;
 }
