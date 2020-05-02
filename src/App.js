@@ -5,15 +5,16 @@ import New from "./components/News/New";
 import Music from "./components/Music/Music";
 import Setting from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
-import {Route, withRouter} from "react-router-dom";
+import {BrowserRouter, Route, withRouter} from "react-router-dom";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
-import {connect} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import Preloader from "./components/Common/Preloader/Preloader";
 import {initializApp} from "./Redux/app-reducer";
+import store from "./Redux/redux-store";
 
 class App extends React.Component {
 
@@ -22,7 +23,7 @@ class App extends React.Component {
     }
 
     render() {
-        if (!this.props.initialized){
+        if (!this.props.initialized) {
             return <Preloader/>
         }
         return (
@@ -50,7 +51,18 @@ const mapStateToProps = (state) => ({
     initialized: state.app.initialized
 })
 
-export default compose(
+let AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initializApp}))
-    (App);
+(App);
+
+let AppWrapper = (props) => {
+    return <BrowserRouter>
+        <Provider store={store}>
+            <AppContainer/>
+        </Provider>
+    </BrowserRouter>
+
+}
+
+export default AppWrapper
